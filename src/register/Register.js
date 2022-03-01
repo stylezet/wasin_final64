@@ -8,7 +8,8 @@ export default class Register extends Component{
         this.state = {
             idkey:"",
             firstname:"",
-            lastname:""
+            lastname:"",
+            phone:""
         }
         this.handleChang = this.handleChang.bind(this);
         this.handleClicked = this.handleClicked.bind(this);
@@ -23,13 +24,15 @@ export default class Register extends Component{
         let data = {
             idkey:this.state.idkey,
             firstname:this.state.firstname,
-            lastname:this.state.lastname
+            lastname:this.state.lastname,
+            phone:this.state.phone
         }
         axios.post(url,data)
         this.setState({
             idkey:"",
             firstname:"",
-            lastname:""
+            lastname:"",
+            phone:""
         });
     }
 
@@ -52,6 +55,10 @@ export default class Register extends Component{
                     <div className="form-group">
                         <label className="text-white"  htmlFor="id">Id</label>
                         <input type="text" className="form-control" size="10" id="idkey" onChange={this.handleChang} value={this.state.idkey}/>
+                    </div>
+                    <div className="form-group">
+                        <label className="text-white"  htmlFor="id">phone</label>
+                        <input type="text" className="form-control" size="10" id="phone" onChange={this.handleChang} value={this.state.phone}/>
                     </div>
                     <button type="button" className="btn btn-primary" onClick={this.handleClicked}>Submit</button>
                 </form>
